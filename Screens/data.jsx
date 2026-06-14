@@ -1,22 +1,27 @@
 import {View, Text, TextInput, TouchableOpacity, FlatList, Image} from 'react-native'
 import { styles } from './register.style';
+import React from 'react';
 
- const DATA = [
-    { id: '1', name: 'Ali' },
-    { id: '2', name: 'Mian' },
-    { id: '3', name: 'Zulqarnaain' },
-    { id: '4', name: 'kashif' },
-  ];
+ 
 export default function Data() {
 
+const [onlineData, setOnlineData] = React.useState([]);
+
+React.useEffect(() => {
+    fetch('https://api.github.com/users')
+      .then((response) => response.json())
+      .then((data) => setOnlineData(data))
+      .catch((error) => console.error(error));
+  }, []);
+  
 return (
-    <View style={styles.dataCon} >
-        <FlatList
-          data={DATA}
+    <View  >
+        <FlatList 
+          data={onlineData}
           renderItem={({ item }) => (
             <View >
-            <Image style={styles.imagestyle} source={{ uri: 'https://img.magnific.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3407.jpg?semt=ais_hybrid&w=740&q=80' }} />
-              <Text>{item.name}</Text>
+            <Image style={styles.imagestyle} source={{ uri: item.avatar_url }} />
+              <Text>{item.login}</Text>
             </View>
           )}
           
