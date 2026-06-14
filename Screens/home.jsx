@@ -7,6 +7,11 @@ import { useNavigation } from '@react-navigation/native';
 export default function Home() {
   const navigation = useNavigation();
 
+  function onPressLoginButton()  {
+
+    navigation.navigate('Data');
+  }
+
   function onPressButton()  {
 
     navigation.navigate('Register');
@@ -30,7 +35,7 @@ export default function Home() {
           
       </View>
       <View style={{marginTop: 20}} />
-      <TouchableOpacity style={[styles.buttonCon, {width: '30%'}]} >
+      <TouchableOpacity style={[styles.buttonCon, {width: '30%'}]} onPress={onPressLoginButton} >
         <View >
           <Text style={{color: 'white' ,fontSize: 18, }}> Login </Text>
         </View> 

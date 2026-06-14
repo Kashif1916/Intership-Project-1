@@ -25,6 +25,17 @@ export const styles = StyleSheet.create({
             borderRadius: 30,
             
             height: 50,
-        }
+        },
+        imagestyle: {
+            width: 200,
+            height: 200,
+        },
+        dataCon: {
+            flex: 1,
+            backgroundColor: '#fdfdfd',
+            justifyContent: 'center',
+            alignItems: 'center',
+            
+          },
 
 });
