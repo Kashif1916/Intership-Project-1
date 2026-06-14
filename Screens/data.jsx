@@ -16,12 +16,14 @@ React.useEffect(() => {
   
 return (
     <View  >
+        
         <FlatList 
           data={onlineData}
           renderItem={({ item }) => (
-            <View >
+            <View style={styles.dataCon} >
+            <Text style={styles.itemText}> Data using API </Text>
             <Image style={styles.imagestyle} source={{ uri: item.avatar_url }} />
-              <Text>{item.login}</Text>
+              <Text style={styles.itemText}>{item.login}</Text>
             </View>
           )}
           

@@ -32,11 +32,14 @@ export const styles = StyleSheet.create({
             borderRadius: 100,
         },
         dataCon: {
-            flex: 1,
             backgroundColor: '#fdfdfd',
             justifyContent: 'center',
             alignItems: 'center',
             
           },
+            itemText: {
+                fontSize: 40,
+                color: 'black',
+            },
 
 });
