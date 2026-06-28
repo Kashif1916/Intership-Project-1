@@ -3,8 +3,14 @@ import React ,{useRef} from 'react';
 import { styles } from './register.style';
 import ConfettiCannon from 'react-native-confetti-cannon';
 import { useState } from 'react';
+import { createUserWithEmailAndPassword} from 'firebase/auth';
+import { auth } from '../firebase.config.js';
+import {useNavigation} from '@react-navigation/native';
+
 
 export default function Register() {
+  const navigation = useNavigation();
+    
     
     const confettiRef = useRef(null);
     const [name, setName] = useState('');
@@ -43,7 +49,14 @@ export default function Register() {
         if (confettiRef.current) {
             confettiRef.current.start();
         }
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log("Successfully signed in as:", user);
+        })
     alert("You are Successfully Registered");
+    navigation.navigate('Home');
     }
     return (
 
