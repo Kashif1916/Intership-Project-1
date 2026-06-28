@@ -1,7 +1,8 @@
-import { View , Image , Text , TextInput , Button ,TouchableOpacity } from 'react-native';
+import { View , Image , Text , TextInput  ,TouchableOpacity } from 'react-native';
 import {styles} from './register.style';
 import Register from './register';
 import { useNavigation } from '@react-navigation/native';
+import {Button} from '../components';
 
 
 export default function Home() {
@@ -40,14 +41,15 @@ export default function Home() {
           <Text style={{color: 'white' ,fontSize: 18, }}> Login </Text>
         </View> 
        
+
         </TouchableOpacity>
       <View style={{marginTop: 10 ,width: '60%'}}  >
         <TouchableOpacity style={styles.buttonCon} onPress={onPressButton}>
         <Text style={{color: 'white' ,fontSize: 18, }}> Create Account </Text> 
       </TouchableOpacity>
       </View>
+      <Button title="test me" onPress={onPressButton} /> 
     </View>
-  );
-}
-
- 
+     
+    
+  );}
