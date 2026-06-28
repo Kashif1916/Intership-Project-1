@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
 
 
 /**
@@ -25,27 +26,31 @@ export  function Button({
 }) {
 
     return (
-       <View style={{marginTop: 20}} >
+       <View  >
              <TouchableOpacity style={styles.buttonCon} onPress={onPress} >
-               <View >
+               
+                 <Ionicons name={iconName} size={iconSize} color={iconColor}  />
                  <Text style={styles.buttonText}> {title} </Text>
-               </View> 
+               
                </TouchableOpacity>
                </View>
     )};
 
 const styles = StyleSheet.create({
 buttonCon: {
+            marginTop: 10,
+            padding: 10,
             backgroundColor: '#000000',
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 30,
-            width: '30%',
             
+            flexDirection: 'row',
             height: 50,
+            
         },
 buttonText: {
-    paddingHorizontal: 20,
+    
     color: 'white',
     fontSize: 18,
 },

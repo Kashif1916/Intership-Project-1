@@ -1,11 +1,14 @@
 import {View, Text, TextInput, TouchableOpacity, FlatList, Image} from 'react-native'
 import { styles } from './register.style';
 import React from 'react';
-
+import {useRoute} from '@react-navigation/native';
  
 export default function Data() {
+    const route = useRoute();
+    const {username} = route.params;
 
 const [onlineData, setOnlineData] = React.useState([]);
+
 
 React.useEffect(() => {
     fetch('https://api.github.com/users')
@@ -14,9 +17,10 @@ React.useEffect(() => {
       .catch((error) => console.error(error));
   }, []);
   
+
 return (
     <View  >
-        
+        <Text style={{fontSize: 40 , color: '#030303' , textAlign: 'center'  }}>Hi, welcome {username}</Text>
         <FlatList 
           data={onlineData}
           renderItem={({ item }) => (
