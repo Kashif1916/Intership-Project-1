@@ -1,3 +1,4 @@
+import 'react-native-reanimated'
 
 import React from 'react';
 import MainNavigation from './Navigation/MainNavigation';

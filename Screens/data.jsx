@@ -2,6 +2,7 @@ import {View, Text, TextInput, TouchableOpacity, FlatList, Image} from 'react-na
 import { styles } from './register.style';
 import React from 'react';
 import {useRoute} from '@react-navigation/native';
+import { MotiView } from 'moti';
  
 export default function Data() {
     const route = useRoute();
@@ -20,7 +21,19 @@ React.useEffect(() => {
 
 return (
     <View  >
+      <MotiView
+      from={{
+        scale: 0,
+      }} 
+      animate={{
+        scale: 1,
+      }}
+      duration={1000}
+      >
+        
         <Text style={{fontSize: 40 , color: '#030303' , textAlign: 'center'  }}>Hi, welcome {username}</Text>
+        </MotiView>
+        
         <FlatList 
           data={onlineData}
           renderItem={({ item }) => (
